@@ -7,6 +7,7 @@
 
 using Notifo.Domain.Apps;
 using Notifo.Domain.Apps.MongoDb;
+using Notifo.Domain.Apps.SqlServer;
 using Notifo.Domain.Counters;
 
 namespace Microsoft.Extensions.DependencyInjection
@@ -15,7 +16,7 @@ namespace Microsoft.Extensions.DependencyInjection
     {
         public static void AddMyApps(this IServiceCollection services)
         {
-            services.AddSingletonAs<MongoDbAppRepository>()
+            services.AddSingletonAs<SqlServerAppRepository>()
                 .As<IAppRepository>();
 
             services.AddSingletonAs<AppStore>()

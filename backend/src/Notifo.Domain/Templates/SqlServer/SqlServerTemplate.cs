@@ -1,0 +1,39 @@
+﻿// ==========================================================================
+//  Notifo.io
+// ==========================================================================
+//  Copyright (c) Sebastian Stehle
+//  All rights reserved. Licensed under the MIT license.
+// ==========================================================================
+
+using Notifo.Infrastructure.MongoDb;
+using Notifo.Infrastructure.SqlServer;
+
+namespace Notifo.Domain.Templates.MongoDb
+{
+    public sealed class SqlServerTemplate : SqlServerEntity<Template>
+    {
+        public static string CreateId(string appId, string id)
+        {
+            return $"{appId}_{id}";
+        }
+
+        public static SqlServerTemplate FromTemplate(Template template)
+        {
+            var docId = CreateId(template.AppId, template.Code);
+
+            var result = new MongoDbTemplate
+            {
+                DocId = docId,
+                Doc = template,
+                Etag = GenerateEtag(),
+            };
+
+            return result;
+        }
+
+        public Template ToTemplate()
+        {
+            return Doc;
+        }
+    }
+}

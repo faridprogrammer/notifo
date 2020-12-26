@@ -10,6 +10,7 @@
     <PackageReference Include="Confluent.Kafka" Version="1.5.2" />
     <PackageReference Include="FluentValidation" Version="9.3.0" />
     <PackageReference Include="Google.Cloud.PubSub.V1" Version="2.1.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.0" />
     <PackageReference Include="Microsoft.Extensions.Caching.Abstractions" Version="5.0.0" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="5.0.0" />
     <PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" Version="5.0.0" />
